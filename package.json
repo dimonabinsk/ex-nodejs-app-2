@@ -4,7 +4,8 @@
   "description": "NodeJS App",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "start": "node index.js",
+    "serve": "nodemon index.js"
   },
   "keywords": [
     "node",
@@ -13,8 +14,11 @@
   "author": "Dmitriy Maklakov <dimonabinsk@yandex.ru>",
   "license": "ISC",
   "dependencies": {
-    "@types/yargs": "^17.0.20",
     "chalk": "^4.1.2",
     "yargs": "^17.6.2"
+  },
+  "devDependencies": {
+    "@types/yargs": "^17.0.20",
+    "nodemon": "^2.0.20"
   }
 }
