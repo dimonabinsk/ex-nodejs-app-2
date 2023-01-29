@@ -1,0 +1,20 @@
+{
+  "name": "ex-nodejs-app-2",
+  "version": "1.0.0",
+  "description": "NodeJS App",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "node",
+    "javascript"
+  ],
+  "author": "Dmitriy Maklakov <dimonabinsk@yandex.ru>",
+  "license": "ISC",
+  "dependencies": {
+    "@types/yargs": "^17.0.20",
+    "chalk": "^4.1.2",
+    "yargs": "^17.6.2"
+  }
+}
