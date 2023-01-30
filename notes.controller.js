@@ -47,7 +47,7 @@ async function removeNote(id) {
   }
 }
 
-async function changeNote(id, newTitle) {
+async function editNote(id, newTitle) {
   const notes = await getNotes();
   if (notes.length > 0) {
     const newNotesList = notes.map((note) => {
@@ -73,5 +73,5 @@ module.exports = {
   printNotes,
   removeNote,
   getNotes,
-  changeNote,
+  editNote,
 };

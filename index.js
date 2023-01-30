@@ -6,7 +6,7 @@ const {
   addNote,
   getNotes,
   removeNote,
-  changeNote,
+  editNote,
 } = require("./notes.controller");
 
 const port = 3000;
@@ -53,7 +53,7 @@ app.delete("/:id", async (req, res) => {
 });
 
 app.put("/:id", async (req, res) => {
-  await changeNote(req.params.id, req.body.title);
+  await editNote(req.params.id, req.body.title);
   res.render("index", {
     title: "Express App",
     notes: await getNotes(),

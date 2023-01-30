@@ -5,10 +5,10 @@ document.addEventListener("click", (event) => {
       event.target.closest("li").remove();
     });
   }
-  if (event.target.dataset.type === "change") {
+  if (event.target.dataset.type === "edit") {
     const id = event.target.dataset.id;
     const title = event.target.closest("li").childNodes[0];
-    changeNote(id, title.textContent.trim()).then((res) => {
+    editNote(id, title.textContent.trim()).then((res) => {
       if (res) {
         title.textContent = res;
       }
@@ -20,7 +20,7 @@ async function removeNote(id) {
   await fetch(`/${id}`, { method: "DELETE" });
 }
 
-async function changeNote(id, text) {
+async function editNote(id, text) {
   const title = prompt("Enter a new note value", text);
   if (title) {
     const bodyObj = {
