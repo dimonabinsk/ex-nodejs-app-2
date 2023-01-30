@@ -37,7 +37,7 @@ async function removeNote(id) {
   if (notes.length > 0) {
     const newNotesList = notes.filter((note) => {
       if (note.id === id) {
-        console.log(chalk.bgRed(`"Заметка: '${note.title}' - была удалена!"`));
+        console.log(chalk.bgRed(`Заметка '${note.title}'  была удалена!`));
       }
       return note.id !== id;
     });
@@ -47,9 +47,31 @@ async function removeNote(id) {
   }
 }
 
+async function changeNote(id, newTitle) {
+  const notes = await getNotes();
+  if (notes.length > 0) {
+    const newNotesList = notes.map((note) => {
+      if (note.id === id) {
+        console.log(
+          chalk.yellowBright(
+            `Заметка '${note.title}' была заменена на '${newTitle}'!`
+          )
+        );
+        return {
+          ...note,
+          title: newTitle,
+        };
+      }
+      return note;
+    });
+    await fs.writeFile(notesPath, JSON.stringify(newNotesList));
+  }
+}
+
 module.exports = {
   addNote,
   printNotes,
   removeNote,
   getNotes,
+  changeNote,
 };
