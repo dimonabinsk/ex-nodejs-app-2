@@ -12,13 +12,20 @@
   </head>
   <body>
     <div class="container">
-      <h1>This is working!</h1>
+      <h1><%= title %></h1>
       <form action="/" method="post" class="mb-3">
         <div class="form-group mb-3">
-          <input type="text" name="title" id="" class="form-control" required/>
+          <input type="text" name="title" id="" class="form-control" required />
         </div>
         <button type="submit" class="btn btn-primary px-3">Create !</button>
       </form>
+      <div class="card">
+        <ul class="list-group">
+          <% for (let i = 0; i < notes.length; i++) { %>
+          <li class="list-group-item"><%= notes[i].title %></li>
+          <% } %>
+        </ul>
+      </div>
     </div>
   </body>
 </html>
